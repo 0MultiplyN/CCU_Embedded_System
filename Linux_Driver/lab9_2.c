@@ -52,8 +52,12 @@ void unexport_gpio() {
 }
 
 int main() {
+    int num_flashes;
+    printf("請輸入閃爍次數: ");
+    scanf("%d", &num_flashes);
+
     // 持續閃爍 LED
-    while (1) {
+    for (int i = 0; i < num_flashes; i++) {
         // 開啟 GPIO
         export_gpio();
         // 設置 GPIO 方向為輸出
@@ -69,5 +73,7 @@ int main() {
         // 休眠 1 秒
         usleep(1000000);
     }
+    printf("finish\n");
+    
     return 0;
 }
